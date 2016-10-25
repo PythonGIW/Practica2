@@ -55,15 +55,19 @@ def loadJSON(input_file, out_file):
         
     for j in listaUbicaciones:   
         frecuencia = listaSemaforos[k]/float(total) 
+        #print frecuencia;
         listaFinal.append([listaUbicaciones[k],listaSemaforos[k],frecuencia]);       
         k += 1
 
     listaOrdenada = sorted(listaFinal, key=operator.itemgetter(2), reverse=1);
     i = 0;
+    #print listaOrdenada;
     for l in listaOrdenada:
-        out_file.write("Ubicación:" + str(l[0].encode('utf-8')) + ", Semáforos:" + str(l[1]) + ", Frecuencia: " + str(l[2])+ '\n')
-        if i < 10:
+        #print l[2];
+        out_file.write("Ubicación:" + str(l[0].encode('utf-8')) + ", Semáforos:" + str(l[1]) + ", Frecuencia: " + str(l[2])+ '\n');
+        if i >= 10:
             break;
+        i += 1;
     
     #out_file.close()#cerramos el archivo de escritura
     
